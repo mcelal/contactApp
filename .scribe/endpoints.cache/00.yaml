@@ -28,19 +28,19 @@ endpoints:
         name: email
         description: 'User email.'
         required: true
-        example: omnis
+        example: test@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'User password.'
         required: true
-        example: est
+        example: password
         type: string
         custom: []
     cleanBodyParameters:
-      email: omnis
-      password: est
+      email: test@example.com
+      password: password
     fileParameters: []
     responses: []
     responseFields: []
@@ -87,7 +87,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6hev3486aagDZE1PbkVc5df'
+      - 'Bearer 6ceD6Ek8g5aZPa1f3b4dvhV'
     controller: null
     method: null
     route: null

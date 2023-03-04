@@ -47,7 +47,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 4fPdhaVgc6Z3Ebea586vk1D'
+      - 'Bearer E8Zgfk5P34VeDcah66d1avb'
     controller: null
     method: null
     route: null
@@ -78,42 +78,34 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: impedit
+        example: pariatur
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: aut
+        example: fuga
         type: string
         custom: []
       company:
         name: company
         description: ''
         required: false
-        example: illo
-        type: string
-        custom: []
-      text:
-        name: text
-        description: 'The text.'
-        required: true
-        example: eum
+        example: quod
         type: string
         custom: []
     cleanBodyParameters:
-      name: impedit
-      last_name: aut
-      company: illo
-      text: eum
+      name: pariatur
+      last_name: fuga
+      company: quod
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 86khd3ecZ4bfVv1D56aEPga'
+      - 'Bearer Dc514Egh86bedPVaZaf36vk'
     controller: null
     method: null
     route: null
@@ -140,11 +132,11 @@ endpoints:
         name: id
         description: 'The ID of the contact.'
         required: true
-        example: cfb8aade-cedf-4ff4-b285-c97150ce9dba
+        example: a24916fc-4322-4d41-b854-c3fe694ff96e
         type: string
         custom: []
     cleanUrlParameters:
-      id: cfb8aade-cedf-4ff4-b285-c97150ce9dba
+      id: a24916fc-4322-4d41-b854-c3fe694ff96e
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -164,7 +156,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer V3e58gP14cavfkbdh6aZ6ED'
+      - 'Bearer kV3Zfbd6ghe8Dc415aP6Eva'
     controller: null
     method: null
     route: null
@@ -192,11 +184,11 @@ endpoints:
         name: id
         description: 'The ID of the contact.'
         required: true
-        example: cfb8aade-cedf-4ff4-b285-c97150ce9dba
+        example: a24916fc-4322-4d41-b854-c3fe694ff96e
         type: string
         custom: []
     cleanUrlParameters:
-      id: cfb8aade-cedf-4ff4-b285-c97150ce9dba
+      id: a24916fc-4322-4d41-b854-c3fe694ff96e
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -204,34 +196,34 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: voluptatem
+        example: officiis
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: beatae
+        example: ut
         type: string
         custom: []
       company:
         name: company
         description: ''
         required: false
-        example: reiciendis
+        example: consequatur
         type: string
         custom: []
     cleanBodyParameters:
-      name: voluptatem
-      last_name: beatae
-      company: reiciendis
+      name: officiis
+      last_name: ut
+      company: consequatur
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6dVfhEg4b6e3v8ZcaP15Dka'
+      - 'Bearer Z6e3fa1kDbcV4Pdhv85agE6'
     controller: null
     method: null
     route: null
@@ -258,11 +250,11 @@ endpoints:
         name: id
         description: 'The ID of the contact.'
         required: true
-        example: cfb8aade-cedf-4ff4-b285-c97150ce9dba
+        example: a24916fc-4322-4d41-b854-c3fe694ff96e
         type: string
         custom: []
     cleanUrlParameters:
-      id: cfb8aade-cedf-4ff4-b285-c97150ce9dba
+      id: a24916fc-4322-4d41-b854-c3fe694ff96e
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -273,7 +265,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer cef6a3bvZVhD86EP1adgk54'
+      - 'Bearer 8kV4vE51fZ6ad6hebPcDa3g'
     controller: null
     method: null
     route: null
