@@ -49,4 +49,4 @@ Route::get('heartbeat', function () {
         'status'  => true,
         'version' => app()->version(),
     ]);
-});
+})->name('heartbeat');
