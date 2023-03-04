@@ -6,7 +6,9 @@ use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ContactController extends Controller
@@ -17,7 +19,7 @@ class ContactController extends Controller
     public function index(): View
     {
         $contacts = Contact::query()
-            ->where('user_id', '=', Auth::user()->id)
+            ->where('user_id', '=', Auth::id())
             ->latest('created_at')
             ->paginate(20);
 
@@ -38,17 +40,33 @@ class ContactController extends Controller
     public function store(StoreContactRequest $request)
     {
         $inputs = $request->validated();
-        $inputs['user_id'] = Auth::user()->id;
+        $inputs['user_id'] = Auth::id();
 
         $file = $request->file('photo');
 
-        if ($file) {
-            $destination = implode(DIRECTORY_SEPARATOR,['uploads', $inputs['user_id']]);
+        if ($request->hasFile('photo')) {
+            $destination = implode(
+                DIRECTORY_SEPARATOR,
+                [
+                    'public',
+                    'uploads',
+                    'contacts',
+                    $inputs['user_id'],
+                ]
+            );
             $fileName = implode('.', [Str::random(), Str::slug($file->getClientOriginalExtension())]);
+            
+            // Save storage folder
+            $file->storeAs($destination, $fileName);
 
-            $file = $file->move($destination, $fileName);
-
-            $inputs['photo'] = $file->getPathname();
+            // Fill photo path for model
+            $inputs['photo'] = implode(
+                DIRECTORY_SEPARATOR,
+                [
+                    'contacts',
+                    $inputs['user_id'],
+                    $fileName
+                ]);
         }
 
         Contact::create($inputs);
@@ -85,6 +103,14 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        if ($contact->user_id === Auth::id()) {
+            if ($contact->photo) {
+                Storage::delete('public/uploads/'.$contact->photo);
+            }
+
+            $contact->delete();
+        }
+
+        return redirect()->route('contact.index');
     }
 }

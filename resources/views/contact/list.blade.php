@@ -32,7 +32,7 @@
                                     @foreach($contacts as $contact)
                                         <tr class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
                                             <td class="whitespace-nowrap px-6 py-4 flex items-center gap-x-1">
-                                                <img class="object-cover w-8 h-8 rounded-full" src="{{ asset($contact->photo ?? 'uploads/profile-blank.webp') }}" alt="">
+                                                <img class="object-cover w-8 h-8 rounded-full" src="{{ asset($contact->photo ? 'uploads/'.$contact->photo : 'uploads/profile-blank.webp') }}" alt="">
                                                 {{ $contact->name }}
                                             </td>
                                             <td class="whitespace-nowrap px-6 py-4">{{ $contact->last_name }}</td>
