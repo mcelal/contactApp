@@ -11,7 +11,7 @@ class UpdateContactRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,25 @@ class UpdateContactRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => [
+                'required',
+                'string',
+            ],
+
+            'last_name' => [
+                'required',
+                'string',
+            ],
+
+            'company' => [
+                'string',
+            ],
+
+            'photo' => [
+                'image',
+                'max:2048',
+                'mimes:jpg,jpeg,png,gif,svg'
+            ]
         ];
     }
 }

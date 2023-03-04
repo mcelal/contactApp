@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use App\Models\Contact;
+use App\Models\ContactItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +56,7 @@ class ContactController extends Controller
                 ]
             );
             $fileName = implode('.', [Str::random(), Str::slug($file->getClientOriginalExtension())]);
-            
+
             // Save storage folder
             $file->storeAs($destination, $fileName);
 
@@ -85,9 +86,11 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Contact $contact)
+    public function edit(Contact $contact): View
     {
-        dump($contact);
+        $contact->load('contactItems');
+
+        return view('contact.edit', compact('contact'));
     }
 
     /**
@@ -95,7 +98,9 @@ class ContactController extends Controller
      */
     public function update(UpdateContactRequest $request, Contact $contact)
     {
-        //
+        $contact->update($request->validated());
+
+        return redirect()->route('contact.edit', [$contact]);
     }
 
     /**

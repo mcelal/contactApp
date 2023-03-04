@@ -18,9 +18,9 @@
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                             <div class="overflow-hidden">
-                                <table class="min-w-full text-left text-sm font-light">
+                                <table class="min-w-full text-left text-sm font-light dark:text-gray-100">
                                     <thead
-                                        class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600">
+                                        class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-gray-600">
                                     <tr>
                                         <th scope="col" class="px-6 py-4">First</th>
                                         <th scope="col" class="px-6 py-4">Last</th>
@@ -37,14 +37,6 @@
                                             </td>
                                             <td class="whitespace-nowrap px-6 py-4">{{ $contact->last_name }}</td>
                                             <td class="whitespace-nowrap px-6 py-4">{{ $contact->company }}</td>
-                                            <td>
-                                                <div class="flex items-center gap-x-2">
-                                                    <div>
-                                                        <h2 class="text-sm font-medium text-gray-800 dark:text-white ">Andi Lane</h2>
-                                                        <p class="text-xs font-normal text-gray-600 dark:text-gray-400">andi@example.com</p>
-                                                    </div>
-                                                </div>
-                                            </td>
                                             <td class="whitespace-nowrap px-6 py-4 flex gap-x-0.5">
                                                 <a
                                                     class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none"
