@@ -3,7 +3,7 @@
 namespace App\Enums;
 
 use BackedEnum;
-enum ContentItemTypeEnum: string
+enum ContactItemTypeEnum: string
 {
     case PHONE = 'Phone';
     case EMAIL = 'Email';

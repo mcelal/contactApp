@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\ContentItemTypeEnum;
+use App\Enums\ContactItemTypeEnum;
 use App\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,11 +18,11 @@ class ContactItemFactory extends Factory
      */
     public function definition(): array
     {
-        $type = $this->faker->randomElement(ContentItemTypeEnum::options());
+        $type = $this->faker->randomElement(ContactItemTypeEnum::options());
         $value = match ($type) {
-            ContentItemTypeEnum::LOCATION->value => $this->faker->city,
-            ContentItemTypeEnum::PHONE->value => $this->faker->phoneNumber,
-            ContentItemTypeEnum::EMAIL->value => $this->faker->email,
+            ContactItemTypeEnum::LOCATION->value => $this->faker->city,
+            ContactItemTypeEnum::PHONE->value => $this->faker->phoneNumber,
+            ContactItemTypeEnum::EMAIL->value => $this->faker->email,
         };
 
         return [
