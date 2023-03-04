@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\ContactItemTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 class StoreContactItemRequest extends FormRequest
 {
@@ -25,6 +27,7 @@ class StoreContactItemRequest extends FormRequest
             'type' => [
                 'required',
                 'string',
+                new Enum(ContactItemTypeEnum::class)
             ],
 
             'value' => [

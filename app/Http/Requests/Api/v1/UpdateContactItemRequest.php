@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Api\v1;
 
+use App\Enums\ContactItemTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 class UpdateContactItemRequest extends FormRequest
 {
@@ -25,6 +27,7 @@ class UpdateContactItemRequest extends FormRequest
             'type' => [
                 'required',
                 'string',
+                new Enum(ContactItemTypeEnum::class)
             ],
 
             'value' => [

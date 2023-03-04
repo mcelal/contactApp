@@ -1,24 +1,158 @@
-name: Endpoints
+name: 'Contact items endpoints'
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: heartbeat
+    uri: 'api/v1/contact/{contact_id}/items'
     metadata:
-      groupName: Endpoints
+      groupName: 'Contact items endpoints'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Display a listing of the resource.'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      contact_id:
+        name: contact_id
+        description: 'The ID of the contact.'
+        required: true
+        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        type: string
+        custom: []
+    cleanUrlParameters:
+      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+    queryParameters:
+      page:
+        name: page
+        description: ''
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer v4ZfEe56c3VDg1kbP6had8a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/contact/{contact_id}/items'
+    metadata:
+      groupName: 'Contact items endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      contact_id:
+        name: contact_id
+        description: 'The ID of the contact.'
+        required: true
+        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        type: string
+        custom: []
+    cleanUrlParameters:
+      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: 'Must be one of <code>Phone</code>, <code>Email</code>, or <code>Location</code>.'
+        required: true
+        example: Email
+        type: string
+        custom: []
+      value:
+        name: value
+        description: ''
+        required: true
+        example: deserunt
+        type: string
+        custom: []
+    cleanBodyParameters:
+      type: Email
+      value: deserunt
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ghZPa64dca5vf6EV3b18ekD'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/contact/{contact_id}/items/{id}'
+    metadata:
+      groupName: 'Contact items endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      contact_id:
+        name: contact_id
+        description: 'The ID of the contact.'
+        required: true
+        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the item.'
+        required: true
+        example: 7b007555-1541-416c-b893-4560a248783d
+        type: string
+        custom: []
+    cleanUrlParameters:
+      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+      id: 7b007555-1541-416c-b893-4560a248783d
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -26,16 +160,136 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"status":true,"version":"10.2.0"}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ik5qUnlaY0xFbis3SjNETkhZWk0vcGc9PSIsInZhbHVlIjoiQVNzamFGalFMUkk4TlhwYWJJazJxMnR0RVh1UWY2ZEx1cEVmcVpmMnBEZFZkVWdIQnhPT3piWlFzZCtoUE5aVTZVVldFME1mSG5XYUE3S2sxYVhMU2RQTlF5UGRCZnE5UThJZ2FuYUVUdjVPcEt6WmNyUDlGYkc1T0tYUVprK28iLCJtYWMiOiIzNTg2MGE4YTVhOWUwMmViODFiMTEwNThjNGJhZjMxNDZiMWM0MDFjZjdmYzhiYzAyMmE4MTFjMWJiZjBmNDU4IiwidGFnIjoiIn0%3D; expires=Sat, 04 Mar 2023 22:44:29 GMT; Max-Age=7200; path=/; samesite=lax; laravel_session=eyJpdiI6Imo1ck1jNkc4UjlPTTZvZXdiOEMwUEE9PSIsInZhbHVlIjoiemlLd2pxSW10Mms0cGo4UVlLU1Rqb2VRWVdPV0FSd0FZQkcyVG85Y2xWbGErMXhZZDE1Z2dwNC96RnVydmRkL25iL2NNQnN1ZGF1VnpVMFZEdGFoRjJkWTd6Tm9QN2RWVlJBdmZTRFNsZDZBMlU3TXRGK2tpUG83czV3ZVFFNkIiLCJtYWMiOiJmMmRmZjI4NThlZWEwMTNhMDA2YmVkZDA2OTQxYWJlNTRjMzczOTEwNDRlY2RlOTdjMDc0NjMyNzhiMDBjOWM4IiwidGFnIjoiIn0%3D; expires=Sat, 04 Mar 2023 22:44:29 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          access-control-allow-origin: '*'
         description: null
         custom: []
     responseFields: []
-    auth: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3kgvhfV5a8dZaDE46b6ec1P'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/contact/{contact_id}/items/{id}'
+    metadata:
+      groupName: 'Contact items endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      contact_id:
+        name: contact_id
+        description: 'The ID of the contact.'
+        required: true
+        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the item.'
+        required: true
+        example: 7b007555-1541-416c-b893-4560a248783d
+        type: string
+        custom: []
+    cleanUrlParameters:
+      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+      id: 7b007555-1541-416c-b893-4560a248783d
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: deserunt
+        type: string
+        custom: []
+      value:
+        name: value
+        description: ''
+        required: true
+        example: iste
+        type: string
+        custom: []
+    cleanBodyParameters:
+      type: deserunt
+      value: iste
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ca8eh354VbdgaDZk16Pf6Ev'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/contact/{contact_id}/items/{id}'
+    metadata:
+      groupName: 'Contact items endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      contact_id:
+        name: contact_id
+        description: 'The ID of the contact.'
+        required: true
+        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        type: string
+        custom: []
+      id:
+        name: id
+        description: 'The ID of the item.'
+        required: true
+        example: 7b007555-1541-416c-b893-4560a248783d
+        type: string
+        custom: []
+    cleanUrlParameters:
+      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+      id: 7b007555-1541-416c-b893-4560a248783d
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer VfZ5beh6dPac4v3g6kED8a1'
     controller: null
     method: null
     route: null
