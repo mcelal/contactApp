@@ -20,7 +20,7 @@
                         @csrf
                         @method('PUT')
                         <div class="px-4 py-5 bg-white dark:bg-gray-800 sm:p-6 shadow {{ isset($actions) ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md' }}">
-                            <div class="grid grid-cols-2 gap-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="col-auto">
                                     <div class="grid grid-cols-1 gap-6">
                                         <!-- Name -->
@@ -56,12 +56,12 @@
                                 <div class="col-auto">
                                     <!-- Photo -->
                                     <div class="col-span-1 flex flex-col justify-center">
-                                        @if($contact->photo && true)
+                                        @if($contact->photo)
                                             <div class="flex flex-wrap justify-center">
                                                 <img
                                                     src="{{ asset($contact->photo ? 'uploads/'.$contact->photo : 'uploads/profile-blank.webp') }}"
                                                     class="max-w-sm rounded border bg-white p-1 dark:border-neutral-700 dark:bg-neutral-800"
-                                                    alt="..." />
+                                                    />
                                             </div>
                                         @endif
                                     </div>
