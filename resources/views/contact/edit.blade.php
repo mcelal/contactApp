@@ -1,8 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Edit Contact') }}: {{ $contact->full_name }}
-        </h2>
+
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ __('Edit Contact') }}: {{ $contact->full_name }}
+            </h2>
+
+            <a href="{{ route('contact.items.create', [$contact]) }}">
+                <x-button>Create New Item</x-button>
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-6">
@@ -64,7 +71,7 @@
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 dark:bg-gray-800 text-right sm:px-6 shadow sm:rounded-bl-md sm:rounded-br-md">
                             <x-button>
-                                {{ __('Save') }}
+                                {{ __('Update') }}
                             </x-button>
                         </div>
                     </form>
@@ -75,7 +82,7 @@
 
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-3">
                 <div class="flex flex-col">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -90,24 +97,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($contact->contactItems as $contactItem)
+                                    @foreach($items as $contactItem)
                                         <tr class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
                                             <td class="whitespace-nowrap px-6 py-4">
                                                 {{ $contactItem->type }}
                                             </td>
-                                            <td class="whitespace-nowrap px-6 py-4">{{ $contactItem->data }}</td>
+                                            <td class="whitespace-nowrap px-6 py-4">{{ $contactItem->value }}</td>
                                             <td class="whitespace-nowrap px-6 py-4 flex gap-x-0.5">
                                                 <a
                                                     class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none"
-                                                    href="{{ route('contact.edit', [$contact]) }}"
+                                                    href="{{ route('contact.items.edit', [$contact, $contactItem]) }}"
                                                 >
                                                     Edit
                                                 </a>
                                                 |
-                                                <form action="{{ route('contact.destroy', [$contact]) }}" method="post" onsubmit="return confirm('Are you sure to delete?')">
+                                                <form action="{{ route('contact.items.destroy', [$contact, $contactItem]) }}" method="post" onsubmit="return confirm('Are you sure to delete?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
+                                                    <button type="submit" class="text-red-500 transition-colors duration-200 hover:text-red-700 focus:outline-none">
                                                         Delete
                                                     </button>
                                                 </form>
@@ -118,6 +125,7 @@
                                 </table>
                             </div>
                             <div class="py-3">
+                                {{ $items->links() }}
                             </div>
                         </div>
                     </div>

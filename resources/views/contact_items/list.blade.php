@@ -48,7 +48,7 @@
                                                 <form action="{{ route('contact.destroy', [$contact]) }}" method="post" onsubmit="return confirm('Are you sure to delete?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="text-red-500 transition-colors duration-200 hover:text-red-700 focus:outline-none">
+                                                    <button type="submit" class="text-blue-500 transition-colors duration-200 hover:text-indigo-500 focus:outline-none">
                                                         Delete
                                                     </button>
                                                 </form>

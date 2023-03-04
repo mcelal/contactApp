@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('contact', ContactController::class);
+    Route::resource('contact', ContactController::class)
+        ->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::resource('contact.items', ContactItemController::class)
+        ->only(['create', 'store', 'edit', 'update', 'destroy']);
 });
 
 

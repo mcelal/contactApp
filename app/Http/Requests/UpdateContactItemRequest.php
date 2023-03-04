@@ -11,7 +11,7 @@ class UpdateContactItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class UpdateContactItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'type' => [
+                'required',
+                'string',
+            ],
+
+            'value' => [
+                'required',
+                'string',
+            ]
         ];
     }
 }

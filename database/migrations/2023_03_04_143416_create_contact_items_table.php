@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('contact_id')->index();
             $table->string('type');
-            $table->text('data');
+            $table->text('value');
             $table->timestamps();
         });
     }

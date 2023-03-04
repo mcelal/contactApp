@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\ContactItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\File;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -15,7 +16,7 @@ use Illuminate\Support\Str;
 class ContactController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @return View
      */
     public function index(): View
     {
@@ -36,16 +37,17 @@ class ContactController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @param StoreContactRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreContactRequest $request)
+    public function store(StoreContactRequest $request): RedirectResponse
     {
         $inputs = $request->validated();
         $inputs['user_id'] = Auth::id();
 
-        $file = $request->file('photo');
-
         if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+
             $destination = implode(
                 DIRECTORY_SEPARATOR,
                 [
@@ -76,37 +78,68 @@ class ContactController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
+     * @param Contact $contact
+     * @return View
      */
     public function edit(Contact $contact): View
     {
-        $contact->load('contactItems');
+        $items = $contact->contactItems()->paginate(20);
 
-        return view('contact.edit', compact('contact'));
+        return view('contact.edit', compact('contact', 'items'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param UpdateContactRequest $request
+     * @param Contact $contact
+     * @return RedirectResponse
      */
-    public function update(UpdateContactRequest $request, Contact $contact)
+    public function update(UpdateContactRequest $request, Contact $contact): RedirectResponse
     {
-        $contact->update($request->validated());
+        $payload = $request->validated();
+
+        if ($request->hasFile('photo')) {
+            // Remove old photo
+            if ($contact->photo) {
+                Storage::delete('public/uploads/'.$contact->photo);
+            }
+
+            // Upload new photo
+            $file = $request->file('photo');
+
+            $destination = implode(
+                DIRECTORY_SEPARATOR,
+                [
+                    'public',
+                    'uploads',
+                    'contacts',
+                    $contact->user_id,
+                ]
+            );
+            $fileName = implode('.', [Str::random(), Str::slug($file->getClientOriginalExtension())]);
+
+            // Save storage folder
+            $file->storeAs($destination, $fileName);
+
+            // Fill photo path for model
+            $payload['photo'] = implode(
+                DIRECTORY_SEPARATOR,
+                [
+                    'contacts',
+                    $contact->user_id,
+                    $fileName
+                ]);
+        }
+
+        $contact->update($payload);
 
         return redirect()->route('contact.edit', [$contact]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @param Contact $contact
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Contact $contact)
+    public function destroy(Contact $contact): RedirectResponse
     {
         if ($contact->user_id === Auth::id()) {
             if ($contact->photo) {
