@@ -43,3 +43,10 @@ Route::get('/docs', function () {
 
     return redirect('docs/index.html');
 });
+
+Route::get('heartbeat', function () {
+    return response()->json([
+        'status'  => true,
+        'version' => app()->version(),
+    ]);
+});
