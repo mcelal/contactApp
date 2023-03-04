@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ContentItemTypeEnum;
 use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +20,10 @@ class ContactItem extends Model
         'contact_id',
         'type',
         'value',
+    ];
+
+    protected $casts = [
+        'type' => ContentItemTypeEnum::class,
     ];
 
     public function contact(): BelongsTo
