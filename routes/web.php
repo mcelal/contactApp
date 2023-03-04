@@ -42,7 +42,7 @@ Route::get('/docs', function () {
     }
 
     return redirect('docs/index.html');
-});
+})->name('docs');
 
 Route::get('heartbeat', function () {
     return response()->json([

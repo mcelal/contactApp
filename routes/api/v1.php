@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\v1\AuthController;
+use App\Http\Controllers\Api\v1\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,12 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
         ->name('login');
 
-    Route::get('/me', [AuthController::class, 'me'])
-        ->name('me')
-        ->middleware('auth:api');
+    Route::middleware(['auth:api'])->group(function () {
+        Route::get('/me', [AuthController::class, 'me'])
+            ->name('me');
+
+        Route::apiResource('contact', ContactController::class);
+    });
+
 });
 

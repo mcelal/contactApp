@@ -1,0 +1,156 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/contactapp.test"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "2e37bc80-eff9-45c6-b18e-ac8a531bf0bd",
+        "description": "Contact App",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/v1\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"pariatur\",\"password\":\"quia\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "User info endpoint",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/me",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET heartbeat",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "heartbeat",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/heartbeat"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "XSRF-TOKEN=eyJpdiI6Ik51UmRXRmkyTG1yRkwvekEzd0NWc0E9PSIsInZhbHVlIjoidXJ2NzZUWGEyeEhQajlBWVJPM3RvQkRiVzR0RVV2SkhoWlM2Zk8rcXMwRUg0TVQ5c01OZnB0K3JqNng1eVJPSnVkcWZDZDM2am1qZmlMRk43Z1h4MGxoNFUrTkZCbXdmY2FKcU4rNjNJSnNjc1ZKWU5IaDd5eEd2N2h6am9YeUIiLCJtYWMiOiI2ZDBhMGM2NzlkZTQ2NTc4ODg4OTIwMDU0OTBhYWNkOTczMTY5YTE4MzhiZjRkNmUyM2U3OTJlMWYyODU3NjE2IiwidGFnIjoiIn0%3D; expires=Sat, 04 Mar 2023 21:15:12 GMT; Max-Age=7200; path=\/; samesite=lax; laravel_session=eyJpdiI6Ilc4bEN2NSt3bm9MSzE2QTlzSkx1R2c9PSIsInZhbHVlIjoiSmRQaFF1ZndTeVVRTnNSZzYxaUtYd3paUEpjaWJRNGN4WVcrbnp0OUF5RjVkazRLdEZYcmphMDMzUllNN1Y3Rjk5aUFhaTJJT0lqY1lpQWFTWG1Sc1lZKzdXTTFuQ0NTUC9NWlBWbXY3YWxFb2tKYXNva0FjWW9iYmVPelJseDMiLCJtYWMiOiIzMjRhNGZhMjczY2RjNzAzOWIxYWIyMzU0NWM2YzhiNjM4ZmZhNzNjNzAyYTAzY2YxNDk3N2QwOWIzYTcwYTc0IiwidGFnIjoiIn0%3D; expires=Sat, 04 Mar 2023 21:15:12 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":true,\"version\":\"10.2.0\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

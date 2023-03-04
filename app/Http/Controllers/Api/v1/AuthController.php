@@ -7,8 +7,17 @@ use App\Http\Requests\Api\v1\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @group Auth endpoints
+ */
 class AuthController extends Controller
 {
+    /**
+     * Login user endpoint
+     *
+     * @param LoginRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(LoginRequest $request)
     {
         if (! Auth::attempt($request->validated())) {
@@ -34,7 +43,6 @@ class AuthController extends Controller
      *
      * @authenticated
      * @header Content-Type application/json
-     * @header Authorization Bearer
      */
     public function me()
     {

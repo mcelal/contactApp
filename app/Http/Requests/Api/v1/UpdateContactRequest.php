@@ -3,16 +3,15 @@
 namespace App\Http\Requests\Api\v1;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
-class LoginRequest extends FormRequest
+class UpdateContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return ! Auth::check();
+        return true;
     }
 
     /**
@@ -23,19 +22,18 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required',
-            'password' => 'required',
-        ];
-    }
-
-    public function bodyParameters(): array
-    {
-        return [
-            'email' => [
-                'description' => 'User email',
+            'name' => [
+                'required',
+                'string',
             ],
-            'password' => [
-                'description' => 'User password',
+
+            'last_name' => [
+                'required',
+                'string',
+            ],
+
+            'company' => [
+                'string',
             ],
         ];
     }
