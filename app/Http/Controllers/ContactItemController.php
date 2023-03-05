@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\ContactItemTypeEnum;
 use App\Http\Requests\StoreContactItemRequest;
 use App\Http\Requests\UpdateContactItemRequest;
 use App\Models\Contact;

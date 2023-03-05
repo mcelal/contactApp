@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ContactItemTypeEnum;
-use App\Models\Contact;
 use App\Models\ContactItem;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;

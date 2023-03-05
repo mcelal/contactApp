@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\v1\StoreContactRequest;
 use App\Http\Requests\Api\v1\UpdateContactRequest;
 use App\Models\Contact;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +24,7 @@ class ContactController extends Controller
     {
         return Contact::query()
             ->where('user_id', '=', Auth::id())
-            ->paginate(2);
+            ->paginate(20);
     }
 
     /**

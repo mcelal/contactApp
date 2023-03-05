@@ -17,12 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->name('api.v1.')->group(function () {
-    Route::post('/login', [AuthController::class, 'login'])
-        ->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
 
     Route::middleware(['auth:api'])->group(function () {
-        Route::get('/me', [AuthController::class, 'me'])
-            ->name('me');
+        Route::get('/me', [AuthController::class, 'me'])->name('me');
 
         Route::apiResource('contact', ContactController::class);
         Route::apiResource('contact.items', ContactItemController::class);

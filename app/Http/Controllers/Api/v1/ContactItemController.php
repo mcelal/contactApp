@@ -80,6 +80,7 @@ class ContactItemController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Contact $contact
+     * @param ContactItem $item
      * @return JsonResponse
      */
     public function destroy(Contact $contact, ContactItem $item): JsonResponse
