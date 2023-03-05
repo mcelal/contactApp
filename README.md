@@ -16,18 +16,26 @@
 ```bash 
   composer install
 ```
-  
+
 ```bash 
-  php artisan:migrate --seed
+  yarn && yarn build
 ```
   
 ```bash 
-  php passport:client --personal -n
+  php artisan migrate --seed
 ```
   
 ```bash 
-  yarn build
+  php artisan passport:client --personal -n
 ```
+  
+```bash 
+  php artisan key:generate
+``` 
+
+```bash 
+  php artisan serve
+``` 
 
 ## Test için kullanıcı bilgileri
 * http://localhost:8080
