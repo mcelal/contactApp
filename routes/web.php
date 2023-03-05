@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactItemController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,9 @@ Route::middleware([
 
     Route::resource('contact.items', ContactItemController::class)
         ->only(['create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::get('report', ReportController::class)
+        ->name('report');
 });
 
 
