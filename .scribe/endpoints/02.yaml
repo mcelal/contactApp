@@ -23,11 +23,11 @@ endpoints:
         name: contact_id
         description: 'The ID of the contact.'
         required: true
-        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        example: ff0ae225-e1fc-418a-8845-328a4db13861
         type: string
         custom: []
     cleanUrlParameters:
-      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+      contact_id: ff0ae225-e1fc-418a-8845-328a4db13861
     queryParameters:
       page:
         name: page
@@ -55,7 +55,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer v4ZfEe56c3VDg1kbP6had8a'
+      - 'Bearer h6Z18Egav5k6eVbP3cd4Dfa'
     controller: null
     method: null
     route: null
@@ -82,11 +82,11 @@ endpoints:
         name: contact_id
         description: 'The ID of the contact.'
         required: true
-        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        example: ff0ae225-e1fc-418a-8845-328a4db13861
         type: string
         custom: []
     cleanUrlParameters:
-      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
+      contact_id: ff0ae225-e1fc-418a-8845-328a4db13861
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -94,26 +94,26 @@ endpoints:
         name: type
         description: 'Must be one of <code>Phone</code>, <code>Email</code>, or <code>Location</code>.'
         required: true
-        example: Email
+        example: Location
         type: string
         custom: []
       value:
         name: value
         description: ''
         required: true
-        example: deserunt
+        example: repudiandae
         type: string
         custom: []
     cleanBodyParameters:
-      type: Email
-      value: deserunt
+      type: Location
+      value: repudiandae
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer ghZPa64dca5vf6EV3b18ekD'
+      - 'Bearer Pe156k6vgdZE8afVacb3hD4'
     controller: null
     method: null
     route: null
@@ -140,19 +140,19 @@ endpoints:
         name: contact_id
         description: 'The ID of the contact.'
         required: true
-        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        example: ff0ae225-e1fc-418a-8845-328a4db13861
         type: string
         custom: []
       id:
         name: id
         description: 'The ID of the item.'
         required: true
-        example: 7b007555-1541-416c-b893-4560a248783d
+        example: db36a632-9aba-455c-8a33-c737d7dc94ab
         type: string
         custom: []
     cleanUrlParameters:
-      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
-      id: 7b007555-1541-416c-b893-4560a248783d
+      contact_id: ff0ae225-e1fc-418a-8845-328a4db13861
+      id: db36a632-9aba-455c-8a33-c737d7dc94ab
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -172,7 +172,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3kgvhfV5a8dZaDE46b6ec1P'
+      - 'Bearer d6ecvDEg531k6aaf8Zh4VbP'
     controller: null
     method: null
     route: null
@@ -200,46 +200,46 @@ endpoints:
         name: contact_id
         description: 'The ID of the contact.'
         required: true
-        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        example: ff0ae225-e1fc-418a-8845-328a4db13861
         type: string
         custom: []
       id:
         name: id
         description: 'The ID of the item.'
         required: true
-        example: 7b007555-1541-416c-b893-4560a248783d
+        example: db36a632-9aba-455c-8a33-c737d7dc94ab
         type: string
         custom: []
     cleanUrlParameters:
-      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
-      id: 7b007555-1541-416c-b893-4560a248783d
+      contact_id: ff0ae225-e1fc-418a-8845-328a4db13861
+      id: db36a632-9aba-455c-8a33-c737d7dc94ab
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       type:
         name: type
-        description: ''
+        description: 'Must be one of <code>Phone</code>, <code>Email</code>, or <code>Location</code>.'
         required: true
-        example: deserunt
+        example: Email
         type: string
         custom: []
       value:
         name: value
         description: ''
         required: true
-        example: iste
+        example: saepe
         type: string
         custom: []
     cleanBodyParameters:
-      type: deserunt
-      value: iste
+      type: Email
+      value: saepe
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer ca8eh354VbdgaDZk16Pf6Ev'
+      - 'Bearer gPd6ha5Z386vb4aDfEecV1k'
     controller: null
     method: null
     route: null
@@ -266,19 +266,19 @@ endpoints:
         name: contact_id
         description: 'The ID of the contact.'
         required: true
-        example: 7efcc7d9-5544-45a2-a910-15aa3386939b
+        example: ff0ae225-e1fc-418a-8845-328a4db13861
         type: string
         custom: []
       id:
         name: id
         description: 'The ID of the item.'
         required: true
-        example: 7b007555-1541-416c-b893-4560a248783d
+        example: db36a632-9aba-455c-8a33-c737d7dc94ab
         type: string
         custom: []
     cleanUrlParameters:
-      contact_id: 7efcc7d9-5544-45a2-a910-15aa3386939b
-      id: 7b007555-1541-416c-b893-4560a248783d
+      contact_id: ff0ae225-e1fc-418a-8845-328a4db13861
+      id: db36a632-9aba-455c-8a33-c737d7dc94ab
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -289,7 +289,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer VfZ5beh6dPac4v3g6kED8a1'
+      - 'Bearer 1dh68DgaEPa5kV43bfeZv6c'
     controller: null
     method: null
     route: null

@@ -22,11 +22,11 @@ class ContactItemController extends Controller
      *
      * @queryParam page integer Example: 1
      */
-    public function index()
+    public function index(Contact $contact)
     {
-        return Contact::query()
-            ->where('user_id', '=', Auth::id())
-            ->paginate(2);
+        return ContactItem::query()
+            ->where('contact_id', '=', $contact->id)
+            ->paginate(20);
     }
 
     /**

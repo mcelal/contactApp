@@ -18,11 +18,11 @@
 ```
   
 ```bash 
-  ./vendor/bin/sail artisan:migrate --seed
+  php artisan:migrate --seed
 ```
   
 ```bash 
-  ./vendor/bin/sail passport:client --personal -n
+  php passport:client --personal -n
 ```
   
 ```bash 
