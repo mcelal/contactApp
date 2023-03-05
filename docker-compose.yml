@@ -1,0 +1,36 @@
+version: '3'
+services:
+    db:
+        image: postgres:14-alpine
+        restart: always
+        environment:
+            POSTGRES_DB: 'contactapp'
+            POSTGRES_USER: 'pguser'
+            POSTGRES_PASSWORD: 'secret'
+        volumes:
+            - db:/data/postgres
+        ports:
+            - "5432:5432"
+    db-test:
+        image: postgres:14-alpine
+        restart: always
+        environment:
+            POSTGRES_DB: 'testing'
+            POSTGRES_USER: 'pguser'
+            POSTGRES_PASSWORD: 'secret'
+        volumes:
+            - db:/data/postgres
+        ports:
+            - "54320:5432"
+    redis:
+        image: 'redis:alpine'
+        restart: always
+        ports:
+            - '6379:6379'
+        volumes:
+            - redis:/data
+volumes:
+    redis:
+        driver: local
+    db:
+        driver: local
